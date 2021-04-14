@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include "bootstrap.html"; ?>
+
+    <link rel="stylesheet" href="style.css">
+    <title>ex5</title>
+</head>
+
+<body>
+    <div class="ex5">
+        <form action="ex5.php" method="post">
+            <input type="text" placeholder="email" name="email">
+            <input type="submit" value="submit" name="submit" id="btn">
+        </form>
+        <?php
+        if (isset($_POST["submit"])) {
+            if ($_POST["email"]) {
+                $email = $_POST["email"];
+                // $rslt =  "$email <br>" .
+                //     $_SERVER['HTTP_USER_AGENT'];
+                // $user_agent= $_SERVER['HTTP_USER_AGENT'];
+                // $browser = get_browser();
+                // print_r($browser);
+                if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE)
+                    $rslt = "your email : $email and your browser : " . 'Internet explorer';
+                elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== FALSE) //For Supporting IE 11
+                    $rslt = "your email : $email and your browser : " . 'Internet explorer';
+                elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') !== FALSE)
+                    $rslt = "your email : $email and your browser : " . 'Mozilla Firefox';
+                elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== FALSE)
+                    $rslt = "your email : $email and your browser : " . 'Google Chrome';
+                elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mini') !== FALSE)
+                    $rslt = "your email : $email and your browser : " . "Opera Mini";
+                elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Opera') !== FALSE)
+                    $rslt = "your email : $email and your browser : " . "Opera";
+                elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari') !== FALSE)
+                    $rslt = "your email : $email and your browser : " . "Safari";
+                else
+                    $rslt = "your email : $email and your browser : " . 'Something else';
+            }
+            // 
+            // 
+        }
+        ?>
+
+
+        <p><?php if (isset($rslt)) {
+                echo $rslt;
+            } ?></p>
+    </div>
+</body>
+
+</html>

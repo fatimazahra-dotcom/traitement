@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include "bootstrap.html"; ?>
+
+    <link rel="stylesheet" href="style.css">
+    <title>ex4</title>
+</head>
+
+<body>
+    <div class="ex4">
+        <form action="ex4.php" method="POST">
+            <input type="text" name="nom" placeholder="nom">
+            <input type="text" name="prenom" placeholder="prenom">
+            <input type="text" name="adress" placeholder="adress">
+            <input type="text" name="code" placeholder="code postal">
+            <input type="submit" value="vérifiant" name="sub" id="btn">
+        </form>
+        <?php
+        if (isset($_POST["sub"])) {
+            $nom = $_POST["nom"];
+            $prenom = $_POST["prenom"];
+            $adress = $_POST["adress"];
+            $code = $_POST["code"];
+            include 'ex4_vpage.php';
+            $verf = new ver($nom, $prenom, $adress, $code);
+        }
+        ?>
+        <table>
+            <tr>
+                <th>nome</th>
+                <th>prenom</th>
+                <th>adress</th>
+                <th>code postal</th>
+            </tr>
+            <tr>
+                <td><?php
+                    if (isset($verf)) {
+                        echo $verf->nom;
+                    }
+                    ?>
+                </td>
+
+                <td><?php
+                    if (isset($verf)) {
+                        echo $verf->prenom;
+                    }
+
+                    ?></td>
+                <td><?php
+                    if (isset($verf)) {
+                        echo  $verf->adres;
+                    }
+
+                    ?></td>
+                <td><?php
+                    if (isset($verf)) {
+                        echo $verf->adres;
+                    }
+
+                    ?></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

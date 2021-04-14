@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include "bootstrap.html";?>
+
+    <link rel="stylesheet" href="style.css">
+    <title>ex6</title>
+</head>
+
+<body>
+    <form action="ex6.php" method="post">
+        <input type="text" name="HT" placeholder="HT">
+        <input type="text" name="TTVA" placeholder="TTVA">
+        <input type="submit" value="calc" name="calc">
+    </form>
+</body>
+    <?php
+    if(isset($_POST["calc"])){
+        $HT = $_POST["HT"];
+        $TTVA = $_POST["TTVA"];
+
+        $TVA = $HT *($TTVA/100);
+
+        $TTC = $HT + $TVA;
+        $rslt = $TTC;
+    }
+    ?>
+    <p><?php
+    if(isset($rslt)){
+        echo "TTC = $rslt<br> ";
+        echo  "TVA = $TVA ";
+    }
+    ?></p>
+</html>

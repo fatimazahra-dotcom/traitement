@@ -1,0 +1,27 @@
+<?php
+
+class ver
+{
+  public $nom;
+  public $prenom;
+  public $adres;
+  public $code;
+  public function  __construct($nom, $prenom, $adres, $code)
+  {
+    if ($nom == null || $prenom == null || $adres == null || $code == null) {
+
+      // echo "<script>alert('chi 7aja khawya')<script>";
+      echo "<script>alert('chi 7aja khawya')</script>";
+    } else {
+      $this->nom = $nom;
+      $this->prenom = $prenom;
+      $this->adres = $adres;
+      $this->code = $code;
+    }
+    // echo "$nom <br>";
+    // echo "$prenom <br>";
+    // echo "$adres <br>";
+    // echo "$code <br>";
+
+  }
+}

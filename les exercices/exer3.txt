@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include "bootstrap.html";?>
+
+    <link rel="stylesheet" href="../brif_n_php_1/style.css">
+    <title>ex3</title>
+</head>
+
+<body>
+<div class="ex3">
+    <form action="ex3.php" method="get">
+        <input type="text" placeholder="val_1" name="val1">
+        <input type="text" placeholder="val_2" name="val2">
+        <input type="submit" value="calc" name="calc">
+    </form>
+<?php
+if(isset($_GET["calc"])){
+   
+    $val_1 = $_GET["val1"];
+    $val_2 = $_GET["val2"];
+    if($val_2 > 0){
+        for($i = 0 ; $i <$val_2 ; $i++){
+            $rs = $val_1 * $i;
+            echo " $val_1 * $i = $rs <br>"; 
+        }
+    }
+  
+
+}
+?>
+</div>
+</body>
+
+</html>
